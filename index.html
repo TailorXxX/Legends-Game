@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="side-column left">
+      <div class="deck-placeholder"></div>
+      <div class="deck-placeholder"></div>
+    </div>
     <div class="container">
       <div class="game-board">
         <div class="row enemy-hand">
@@ -14,76 +18,23 @@
           <div class="card placeholder"></div>
           <div class="card placeholder"></div>
         </div>
-        <div class="row enemy-battlefield">
-          <!-- Enemy cards will be dynamically added here -->
+        <div class="row enemy-visible-cards">
+          <!-- Maximum 5 enemy visible cards will be dynamically added here -->
         </div>
-        <div class="row player-battlefield">
-          <!-- Player cards will be dynamically added here -->
+        <div class="row player-visible-cards">
+          <!-- Maximum 5 player visible cards will be dynamically added here -->
         </div>
         <div class="row player-hand">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Balmond the Berserker</h2>
-              <span class="card-level">Mana 5</span>
-            </div>
-            <div class="card-image">
-              <img src="./assets/Balmond.jpg" alt="Hero image" />
-            </div>
-            <div class="card-description">
-              <p>The king of the mighty Mountain Orcs.</p>
-            </div>
-            <div class="card-stats">
-              <div class="attack">
-                Attack: <span class="attack-value">1800</span>
-              </div>
-              <div class="health">
-                Health: <span class="health-value">100</span>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Karina</h2>
-              <span class="card-level">Mana 4</span>
-            </div>
-            <div class="card-image">
-              <img src="./assets/Karina.jpeg" alt="Hero image" />
-            </div>
-            <div class="card-description">
-              <p>Karina the Blade Dancer Dark Elf.</p>
-            </div>
-            <div class="card-stats">
-              <div class="attack">
-                Attack: <span class="attack-value">2500</span>
-              </div>
-              <div class="health">
-                Health: <span class="health-value">100</span>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Zilong</h2>
-              <span class="card-level">Mana 6</span>
-            </div>
-            <div class="card-image">
-              <img src="./assets/Zilong.jpg" alt="Hero image" />
-            </div>
-            <div class="card-description">
-              <p>Zilong was the greatest general of all time.</p>
-            </div>
-            <div class="card-stats">
-              <div class="attack">
-                Attack: <span class="attack-value">2100</span>
-              </div>
-              <div class="health">
-                Health: <span class="health-value">100</span>
-              </div>
-            </div>
-          </div>
+          <div class="card placeholder"></div>
+          <div class="card placeholder"></div>
+          <div class="card placeholder"></div>
         </div>
       </div>
     </div>
-    <script src="app.js"></script>
+    <div class="side-column right">
+      <div class="deck-placeholder"></div>
+      <div class="deck-placeholder"></div>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

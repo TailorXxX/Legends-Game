@@ -5,13 +5,16 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   overflow: hidden;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  height: 100vh;
+  width: 75%;
 }
 
 .game-board {
@@ -86,4 +89,37 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   background-image: url(assets/BackgroundCARD.jpg);
   background-size: cover;
+  /* visibility: hidden; */
+}
+
+.player-placeholder {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url(assets/CARDs_Heroes_Background.avif);
+  background-size: cover;
+}
+
+.side-column {
+  height: 100vh;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 10px;
+}
+.left {
+  margin-bottom: 15px;
+}
+.right {
+  margin-top: 15px;
+  justify-content: flex-start;
+}
+
+.deck-placeholder {
+  width: 120px;
+  height: 160px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
 }
