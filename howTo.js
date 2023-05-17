@@ -2,8 +2,7 @@
 // let variabile = document.getElementsByClassName("DOM");
 
 class Deck {
-  constructor(player, cards, total) {
-    this.player = player;
+  constructor(cards, total) {
     this.cards = cards;
     this.total = total;
   }
@@ -92,3 +91,12 @@ class Graveyard {
 function startGame() {}
 function endGame() {}
 function resolve() {}
+
+function displayHero(hero) {
+  const heroDisplay = `<div>
+  ${hero.name} 
+  <img src = ${hero.image}>
+  </div>`;
+  document.getElementById("hero").insertAdjacentHTML("afterbegin", heroDisplay);
+}
+displayHero(karina);

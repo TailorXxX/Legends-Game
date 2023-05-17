@@ -9,7 +9,7 @@
   <body>
     <div class="side-column left">
       <div class="deck-placeholder"></div>
-      <div class="deck-placeholder"></div>
+      <div class="grave-placeholder"></div>
     </div>
     <div class="container">
       <div class="game-board">
@@ -25,16 +25,18 @@
           <!-- Maximum 5 player visible cards will be dynamically added here -->
         </div>
         <div class="row player-hand">
-          <div class="card placeholder"></div>
-          <div class="card placeholder"></div>
-          <div class="card placeholder"></div>
+          <div id="player-slot1" class="placeholder"></div>
+          <div id="player-slot1" class="placeholder"></div>
+          <div id="player-slot1" class="placeholder"></div>
         </div>
       </div>
     </div>
     <div class="side-column right">
-      <div class="deck-placeholder"></div>
-      <div class="deck-placeholder"></div>
+      <div class="grave-placeholder"></div>
+      <div id="deck-placeholder"></div>
+      <div id="hero"></div>
     </div>
-    <script src="main.js"></script>
+    <script src="main.js" type="module"></script>
+    <!-- <script src="howTo.js"></script> -->
   </body>
 </html>

@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
-  background-image: url(./assets/BATTLEFIELD.svg);
+  background-image: url(./assets/BattlefieldRAW.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -27,6 +27,8 @@ body {
 .row {
   display: flex;
   justify-content: center;
+  border: 3px #f4eb4424 solid;
+  margin-right: 10px;
 }
 
 .card {
@@ -121,5 +123,35 @@ body {
   height: 160px;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  border: 2px #f4eb44 solid;
   padding: 10px;
+}
+
+.grave-placeholder {
+  width: 120px;
+  height: 160px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 2px #f4eb44 solid;
+  padding: 10px;
+}
+
+#hero {
+  width: 120px;
+  height: 160px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#hero img {
+  width: 120px;
+  height: 160px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
