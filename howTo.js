@@ -1,102 +1,102 @@
-// Declar variable si fac manipularea DOM.
-// let variabile = document.getElementsByClassName("DOM");
+// // Declar variable si fac manipularea DOM.
+// // let variabile = document.getElementsByClassName("DOM");
 
-class Deck {
-  constructor(cards, total) {
-    this.cards = cards;
-    this.total = total;
-  }
+// class Deck {
+//   constructor(cards, total) {
+//     this.cards = cards;
+//     this.total = total;
+//   }
 
-  showCard() {}
+//   showCard() {}
 
-  firstDraw() {}
+//   firstDraw() {}
 
-  draw() {}
+//   draw() {}
 
-  count() {}
+//   count() {}
 
-  shuffle() {}
-}
+//   shuffle() {}
+// }
 
-class Player {
-  constructor(deck, hand, life, battleField, grave) {
-    this.deck = deck;
-    this.hand = hand;
-    this.life = life;
-    this.battleField = battleField;
-    this.grave = grave;
-  }
+// class Player {
+//   constructor(deck, hand, life, battleField, grave) {
+//     this.deck = deck;
+//     this.hand = hand;
+//     this.life = life;
+//     this.battleField = battleField;
+//     this.grave = grave;
+//   }
 
-  firstDraw() {}
+//   firstDraw() {}
 
-  draw() {}
+//   draw() {}
 
-  inspect() {}
+//   inspect() {}
 
-  placeCard() {}
+//   placeCard() {}
 
-  attack() {}
+//   attack() {}
 
-  endTurn() {}
-}
+//   endTurn() {}
+// }
 
-class Hero {
-  constructor(name, image, description, attack, mana) {
-    this.name = name;
-    this.image = image;
-    this.description = description;
-    this.attack = attack;
-    this.mana = mana;
-  }
+// class Hero {
+//   constructor(name, image, description, attack, mana) {
+//     this.name = name;
+//     this.image = image;
+//     this.description = description;
+//     this.attack = attack;
+//     this.mana = mana;
+//   }
 
-  faceDown() {}
+//   faceDown() {}
 
-  faceUp() {}
+//   faceUp() {}
 
-  ability() {}
+//   ability() {}
 
-  destroy() {}
+//   destroy() {}
 
-  attack() {}
-}
+//   attack() {}
+// }
 
-class Battlefield {
-  constructor(player, card, slot) {
-    this.player = player;
-    this.card = card;
-    this.slot = slot;
-  }
+// class Battlefield {
+//   constructor(player, card, slot) {
+//     this.player = player;
+//     this.card = card;
+//     this.slot = slot;
+//   }
 
-  addCard() {}
+//   addCard() {}
 
-  removeCard() {}
+//   removeCard() {}
 
-  battle() {}
-}
+//   battle() {}
+// }
 
-class Graveyard {
-  constructor(player, cards, total) {
-    this.player = player;
-    this.cards = cards;
-    this.total = total;
-  }
+// class Graveyard {
+//   constructor(player, cards, total) {
+//     this.player = player;
+//     this.cards = cards;
+//     this.total = total;
+//   }
 
-  addCard() {}
+//   addCard() {}
 
-  removeCard() {}
+//   removeCard() {}
 
-  count() {}
-}
+//   count() {}
+// }
 
-function startGame() {}
-function endGame() {}
-function resolve() {}
+// function startGame() {}
+// function endGame() {}
+// function resolve() {}
 
-function displayHero(hero) {
-  const heroDisplay = `<div>
-  ${hero.name} 
-  <img src = ${hero.image}>
-  </div>`;
-  document.getElementById("hero").insertAdjacentHTML("afterbegin", heroDisplay);
-}
-displayHero(karina);
+// function displayHero(hero) {
+//   const heroDisplay = `<div>
+//   ${hero.name}
+//   <img src = ${hero.image}>
+//   </div>`;
+//   document.getElementById("hero").insertAdjacentHTML("afterbegin", heroDisplay);
+// }
+// displayHero(karina);
