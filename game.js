@@ -9,6 +9,7 @@ class Game {
 
     switchTurn() {
         this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
+        this.enemyPlayer = this.currentPlayer === this.player2 ? this.player1 : this.player2;
 
         this.currentTurn++;
 
@@ -26,7 +27,7 @@ class Game {
     }
 
     test() {
-        for (let index = 0; index < 6; index++) {
+        for (let index = 0; index < 12; index++) {
             this.mainPhase();
             this.endTurn();
         }
@@ -63,22 +64,37 @@ class Game {
         const selectedCard = this.currentPlayer.hand.reduce(function (prev, current) {
             return prev.attack > current.attack ? prev : current;
         });
+        console.log("Highest attack: " + selectedCard.name + " with " + selectedCard.attack);
 
         const selectedHeroIndex = this.currentPlayer.hand.findIndex((card) => card.name == selectedCard.name);
 
-        displayHeroes([selectedCard]);
+        if (this.currentPlayer == this.player1) {
+            displayHeroes([selectedCard], "player-deck-placeholder");
+        } else {
+            displayHeroes([selectedCard], "computer-deck-placeholder");
+        }
 
         this.currentPlayer.addCardToBattleByIndexInHand(selectedHeroIndex);
-        console.log("Highest attack: " + selectedCard.name + " with " + selectedCard.attack);
-
-        // PLAYER ATTACKS FIST CARD IN ENEMY
 
         if (this.currentTurn != 0) {
-            this.currentPlayer.battlefield.attackWithCardIndex(
+            const attackedCard = this.enemyPlayer.battlefield.slots.reduce(function (prev, current) {
+                return prev.attack < current.attack ? prev : current;
+            });
+
+            console.log(this.currentPlayer.name + " chose to attack " + attackedCard.name);
+
+            const attackedCardIndex = this.enemyPlayer.battlefield.getIndexByCard(attackedCard);
+
+            const attackIsSuccessfull = this.currentPlayer.battlefield.attackEnemyIndexWithCardIndexReturningStatus(
                 selectedHeroIndex,
-                this.currentPlayer === this.player1 ? this.player2 : this.player1,
-                0
+                this.enemyPlayer,
+                attackedCardIndex
             );
+
+            if (!attackIsSuccessfull) {
+                console.log("Attack failed, adding " + selectedCard.name + " to Graveyard");
+                this.currentPlayer.graveyard.addCard(selectedCard);
+            }
         }
     }
 

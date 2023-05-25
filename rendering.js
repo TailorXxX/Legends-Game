@@ -1,6 +1,6 @@
 const createHeroElement = (hero) =>
     `
-		<div id="${hero.name}">
+		<div id="${hero.name}" class="hero" onclick="console.log(${hero.name})">
 			<p>${hero.name}</p>
 			<img src="./assets/${hero.image}" width="200" >
       <p>${hero.description}</p>
@@ -9,16 +9,16 @@ const createHeroElement = (hero) =>
 		</div>
 	`;
 
-function displayHeroes(heroesList) {
+function displayHeroes(heroesList, elementId) {
     for (let hero of heroesList) {
         const heroElement = createHeroElement(hero);
-        document.getElementById("deck-placeholder").insertAdjacentHTML("beforeend", heroElement);
+        document.getElementById(elementId).insertAdjacentHTML("beforeend", heroElement);
     }
 }
 
 function displayCards(heroesList, targetElementId, isPlayer) {
     for (let hero of heroesList) {
-        const heroElement = createCardElement(hero, isPlayer);
+        const heroElement = createHeroElement(hero, isPlayer);
         document.getElementById(targetElementId).insertAdjacentHTML("beforeend", heroElement);
     }
 }

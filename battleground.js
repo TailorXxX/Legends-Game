@@ -4,7 +4,6 @@ class Battleground {
     }
 
     addCardToBattle(card) {
-        console.log(card);
         this.slots.push(card);
         return this.slots;
     }
@@ -13,13 +12,17 @@ class Battleground {
         return this.slots[index];
     }
 
+    removeCard(card) {
+        const cardIndex = this.getIndexByCard(card);
+        this.slots.splice(cardIndex, 1);
+    }
+
     getIndexByCard(card) {
-        console.log(this.slots.findIndex((slotCard) => slotCard.name == card.name));
         return this.slots.findIndex((slotCard) => slotCard == card);
     }
 
-    attackWithCardIndex(index, enemyPlayer, enemyHeroIndex) {
-        if (index >= this.slots.length) return;
+    attackEnemyIndexWithCardIndexReturningStatus(index, enemyPlayer, enemyHeroIndex) {
+        if (index >= this.slots.length) return false;
         let damage = this.slots[index]?.attack;
 
         // const myCard = this.getCardByIndex(index)
@@ -28,19 +31,37 @@ class Battleground {
             this.slots[index]?.name + " attacked " + enemyPlayer.battlefield.getCardByIndex(enemyHeroIndex)?.name
         );
 
-        const enemyCard = enemyPlayer.battlefield.slots[enemyHeroIndex];
+        const enemyCard = enemyPlayer.battlefield.getCardByIndex(enemyHeroIndex);
 
-        if (!enemyCard || damage < enemyCard.attack) {
-            console.log("but it failed");
-            return;
+        if (!enemyCard) {
+            console.log("no card to attack, attacking player");
+            enemyPlayer.attacked(damage);
+            return true;
         }
 
-        if (damage >= enemyCard.attack) {
+        if (damage < enemyCard.attack) {
+            console.log("but it failed");
+            return false;
+        }
+
+        if (damage > enemyCard?.attack) {
             console.log("and it's sucessfull");
+
             enemyPlayer.battlefield.slots.splice(enemyHeroIndex, 1);
+            console.log("Adding " + enemyCard.name + " to Graveyard");
             enemyPlayer.graveyard.addCard(enemyCard);
-        } else {
-            enemyPlayer.attacked(damage);
+
+            return true;
+        }
+
+        if (damage == enemyCard?.attack) {
+            console.log("equal attacks");
+
+            enemyPlayer.battlefield.slots.splice(enemyHeroIndex, 1);
+            console.log("Adding " + enemyCard.name + " to Graveyard");
+            enemyPlayer.graveyard.addCard(enemyCard);
+
+            return false;
         }
     }
 }
