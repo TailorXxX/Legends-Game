@@ -3,6 +3,7 @@ class Game {
         this.player1 = player1;
         this.player2 = player2;
         this.currentPlayer = player1;
+        this.enemyPlayer = player2;
         this.currentTurn = 0;
     }
 
@@ -59,16 +60,25 @@ class Game {
             `${this.player2.name}'s hand in round ${this.currentTurn}: ${this.player2.hand.map((it) => it.name)}`
         );
 
-        const highestAttackCard = this.currentPlayer.hand.reduce(function (prev, current) {
+        const selectedCard = this.currentPlayer.hand.reduce(function (prev, current) {
             return prev.attack > current.attack ? prev : current;
         });
 
-        this.currentPlayer.placeHero(highestAttackCard);
-        console.log("Highest attack: " + highestAttackCard.name + " with " + highestAttackCard.attack);
-        displayHeroes([highestAttackCard]);
+        const selectedHeroIndex = this.currentPlayer.hand.findIndex((card) => card.name == selectedCard.name);
+
+        displayHeroes([selectedCard]);
+
+        this.currentPlayer.addCardToBattleByIndexInHand(selectedHeroIndex);
+        console.log("Highest attack: " + selectedCard.name + " with " + selectedCard.attack);
+
+        // PLAYER ATTACKS FIST CARD IN ENEMY
 
         if (this.currentTurn != 0) {
-            this.currentPlayer.attack(0, this.currentPlayer === this.player1 ? this.player2 : this.player1, 0);
+            this.currentPlayer.battlefield.attackWithCardIndex(
+                selectedHeroIndex,
+                this.currentPlayer === this.player1 ? this.player2 : this.player1,
+                0
+            );
         }
     }
 

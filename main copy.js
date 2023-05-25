@@ -70,7 +70,7 @@ function handleCardClick(heroName) {
 
     if (heroIndex !== -1) {
         // Place the hero on the battlefield
-        player.placeHero(heroIndex);
+        player.addCardToBattleByIndexInHand(heroIndex);
 
         // Move the card to the battlefield in the UI
         moveCardToBattlefield(heroName, "player-hand", "player-battlefield");

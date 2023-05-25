@@ -34,13 +34,15 @@
         </div>
         <div class="container">
             <div class="game-board">
-                <div class="enemy-hand"></div>
-                <div class="enemy-battleground">
+                <div class="computer-hand"></div>
+                <div class="computer-battlefield">
                     <!-- Maximum 5 enemy visible cards will be dynamically added here -->
                 </div>
-                <div class="player-battleground">
-                    <!-- Maximum 5 player visible cards will be dynamically added here -->
-                </div>
+                <div
+                    id="player-battlefield"
+                    onclick="handleBattlefieldClick()"
+                ></div>
+
                 <div id="player-cards" class="player-hand"></div>
             </div>
         </div>

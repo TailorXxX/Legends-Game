@@ -15,3 +15,10 @@ function displayHeroes(heroesList) {
         document.getElementById("deck-placeholder").insertAdjacentHTML("beforeend", heroElement);
     }
 }
+
+function displayCards(heroesList, targetElementId, isPlayer) {
+    for (let hero of heroesList) {
+        const heroElement = createCardElement(hero, isPlayer);
+        document.getElementById(targetElementId).insertAdjacentHTML("beforeend", heroElement);
+    }
+}

@@ -4,6 +4,7 @@ class Battleground {
     }
 
     addCardToBattle(card) {
+        console.log(card);
         this.slots.push(card);
         return this.slots;
     }
@@ -12,12 +13,19 @@ class Battleground {
         return this.slots[index];
     }
 
-    attack(index, enemyPlayer, enemyHeroIndex) {
+    getIndexByCard(card) {
+        console.log(this.slots.findIndex((slotCard) => slotCard.name == card.name));
+        return this.slots.findIndex((slotCard) => slotCard == card);
+    }
+
+    attackWithCardIndex(index, enemyPlayer, enemyHeroIndex) {
         if (index >= this.slots.length) return;
-        let damage = this.slots[index].attack;
+        let damage = this.slots[index]?.attack;
+
+        // const myCard = this.getCardByIndex(index)
 
         console.log(
-            this.slots[index].name + " attacked " + enemyPlayer.battlefield.getCardByIndex(enemyHeroIndex).name
+            this.slots[index]?.name + " attacked " + enemyPlayer.battlefield.getCardByIndex(enemyHeroIndex)?.name
         );
 
         const enemyCard = enemyPlayer.battlefield.slots[enemyHeroIndex];

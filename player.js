@@ -6,6 +6,7 @@ class Player {
         this.hand = [];
         this.battlefield = new Battleground();
         this.graveyard = new Graveyard();
+        this.selectedCard = null;
     }
 
     attacked(damage) {
@@ -17,14 +18,38 @@ class Player {
         return this.hand.find(card);
     }
 
-    placeHero(index) {
-        // console.log(`${this.name} placed ${this.hand[index].name}`);
+    handleCardClickByHeroName(heroName) {
+        // Find the hero in player's hand
+        const hero = this.hand.find((hero) => hero.name === heroName);
+
+        if (hero !== undefined) {
+            // Select the card to be placed on the battlefield
+            this.selectedCard = hero;
+        }
+    }
+
+    addCardToBattleByIndexInHand(index) {
+        console.log(`${this.name} placed ${this.hand[index]?.name}`);
         this.battlefield.addCardToBattle(this.hand[index]);
         this.hand.splice(index, 1);
     }
 
-    attack(heroIndex, enemyPlayer, enemyHeroIndex) {
-        this.battlefield.attack(heroIndex, enemyPlayer, enemyHeroIndex);
+    handleBattlefieldClick() {
+        // Check if a card is selected
+        if (this.selectedCard !== null) {
+            // FIXME: REPLACE WITH INDEX ACCESS FROM HAND
+            this.addCardToBattleByIndexInHand(this.selectedCard);
+
+            // Remove the hero card from player's hand in UI
+            // const hero = this.battlefield[this.battlefield.slots.length - 1];
+            document.getElementById(hero.name)?.remove();
+
+            // Add the hero card to player's battlefield in UI
+            displayCards([hero], "player-battlefield", true);
+
+            // Reset selected card
+            this.selectedCard = null;
+        }
     }
 
     dealCards(count) {
